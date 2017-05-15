@@ -47,10 +47,25 @@
             'navigationPosition': 'right',
             'fixedElements':".lunbo",
             'menu':".lunbo",
-            afterLoad:function () {
-                
+            'navigationTooltips': ['fullPage.js', 'Powerful', 'Amazing', 'Simple'],
+            afterLoad:function (an,index) {
+                if(index==3){
+                    $(".lunbo").css({transform:"rotate(-90deg)"}).addClass("active")
+                }
+            },
+            onLeave:function (index) {
+                if(index==3){
+                    $(".lunbo").css({transform:"rotate(90deg)"}).removeClass("active")
+                }
             }
-//            'navigationTooltips': ['fullPage.js', 'Powerful', 'Amazing', 'Simple']
+        });
+        $(".lunbo").click(function () {
+            if($(this).hasClass("active")){
+                $.fn.fullpage.moveTo(1);
+            }else{
+                $.fn.fullpage.moveSectionDown()
+                $(".lunbo").css({transform:"rotate(90deg)"})
+            }
         })
     })
 </script>
@@ -102,10 +117,7 @@
                 </a>
             </div>
             <a href="../优逸课/首页/shouye.html">
-                <div class="lunbo">
-                    <div class="jiantou" style="color: #fff; font-size: 30px;"> >
-                    </div>
-                </div>
+                <div class="lunbo" style="color: #fff; font-size: 30px;"> > </div>
             </a>
         </div>
         <!-- banner结束 -->
@@ -157,32 +169,39 @@
         <!-- 个人资料结束 -->
     </div>
     <div class="section">
-        <div class="zuopin">
-            <div class="zuopin1">
-            <div class="zhe"></div>
-            <div class="hh">work</div>
-            <div class="fan"></div>
-            <div class="mao"></div>
-            <div class="mi"></div>
-            <div class="sao"></div>
-            <div class="dong"></div>
-            <div class="fa"></div>
-            <div class="dazi"></div>
+        <div class="slide">
+            <div class="zuopin">
+                <div class="hh">work</div>
+                <div class="fan"></div>
+                <div class="mi"></div>
+                <div class="mao"></div>
+             </div>
+        </div>
+        <div class="slide">
+            <div class="zuopin">
+                <div class="hh">work</div>
+                <div class="sao"></div>
+                <div class="dong"></div>
+                <div class="fa"></div>
             </div>
         </div>
+        <div class="slide">
+            <div class="zuopin">
+                <div class="hh">work</div>
+                <div class="dazi"></div>
+                <div class="yidong"></div>
+                <div class="huaban"></div>
+            </div>
+        </div>
+    </div>
 
-        <!--<div class="slide">第三屏的第一屏</div>-->
-        <!--<div class="slide">第三屏的第二屏</div>-->
-        <!--<div class="slide">第三屏的第三屏</div>-->
+
+
+
         <!--<div class="slide">第三屏的第四屏</div>-->
         <!-- 作品展示结束 -->
 
 </div>
 </body>
-<script>
-    $(".lunbo").click(function () {
 
-        $.fn.fullpage.moveSectionDown()
-    })
-</script>
 </html>
