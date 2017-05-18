@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>小张同学主页</title>
     <script src="js/jQuery.js"></script>
     <link rel="stylesheet" href="css/jquery.fullPage.css">
     <link rel="stylesheet" href="css/jquery.fullPage.css">
@@ -12,9 +12,12 @@
     <script src="js/jquery-1.8.3.min.js"></script>
     <script src="js/jquery.fullPage.min.js"></script>
     <script src="js/jquery.fullPage.js"></script>
-    <script src="js/zy.js" type="text/javascript"></script>
+    <script src="js/echarts.common.min.js"></script>
 </head>
 <style type="text/css">
+    body,html{
+        user-select: none;
+    }
     .processcontainer,.processcontainer2,.processcontainer3,.processcontainer1{
          float: left;
          width:360px;
@@ -41,21 +44,25 @@
         $('#fullpage').fullpage({
             'verticalCentered': false,
             'css3': true,
-            'sectionsColor': ['#4D4D4D', '', '#fff', '#695684'],
+            'sectionsColor': ['#4D4D4D', '', '#fff', '#fff'],
             anchors: ['page1', 'page2', 'page3'],
             'navigation': true,
             'navigationPosition': 'right',
             'fixedElements':".lunbo",
             'menu':".lunbo",
-            'navigationTooltips': ['fullPage.js', 'Powerful', 'Amazing', 'Simple'],
+//            'navigationTooltips': ['fullPage.js', 'Powerful', 'Amazing', 'Simple'],
             afterLoad:function (an,index) {
-                if(index==3){
+                if(index==4){
+                    $(".bottom-main-zhong-left ul").show(600)
                     $(".lunbo").css({transform:"rotate(-90deg)"}).addClass("active")
+                    $(".bottom-main-zhong-right").show(600)
                 }
             },
             onLeave:function (index) {
-                if(index==3){
+                if(index==4){
                     $(".lunbo").css({transform:"rotate(90deg)"}).removeClass("active")
+                    $(".bottom-main-zhong-left ul").hide(300)
+                    $(".bottom-main-zhong-right").hide(300)
                 }
             }
         });
@@ -78,31 +85,31 @@
                 <main>
                     <ul class="max-nav">
                         <li>
-                            <a href="../凡客/index1.html">Top</a>
+                            <a href="##">Top</a>
                         </li>
                         <li>
-                            <a href="../小米22/mmm.html">Works</a>
+                            <a href="##">Works</a>
                         </li>
                         <li>
-                            <a href="../天猫mf/天猫.html">contact</a>
+                            <a href="##">contact</a>
                         </li>
                         <li>
-                            <a href="../苹果2/pinguo.html">Background</a>
+                            <a href="##">Background</a>
                         </li>
                         <li>
-                            <a href="../天猫移动端/首页/yidongmao.html">Personnality</a>
+                            <a href="##">Personnality</a>
                         </li>
                     </ul>
                     <!-- 小屏 -->
                     <ul class="min-nav">
                         <li>
-                            <a href="../凡客/index1.html">Top</a>
+                            <a href="##">Top</a>
                         </li>
                         <li>
-                            <a href="../小米22/mmm.html">Works</a>
+                            <a href="##">Works</a>
                         </li>
                         <li>
-                            <a href="../天猫mf/天猫.html">contact</a>
+                            <a href="##">contact</a>
                         </li>
                     </ul>
                 </main>
@@ -113,10 +120,10 @@
             <img src="img/banner.jpg" alt="">
             <div class="bannersz"></div>
             <div class="bannerwen">
-                <a href="../优逸课/首页/shouye.html">This's 	 Me
+                <a href="##">This's 	 Me
                 </a>
             </div>
-            <a href="../优逸课/首页/shouye.html">
+            <a href="##">
                 <div class="lunbo" style="color: #fff; font-size: 30px;"> > </div>
             </a>
         </div>
@@ -131,38 +138,7 @@
                 <div class="di-right">
                     <h1>ABOUT ME</h1>
                     <p>小张同学，1995年生人，男，毕业于山西财专信息学院，应聘职位全栈工程师，<br>兴趣爱好广泛，喜欢交朋友。</p>
-                    <h2>
-                        <div class="ui">
-                            <b>UI/UX</b>
-                        </div>
-                        <div class="processcontainer">
-                            <div id="processbar" style="width:0%;";></div>
-                        </div>
-                    </h2>
-                    <h2>
-                        <div class="ui">
-                            <b>PS</b>
-                        </div>
-                        <div class="processcontainer1">
-                            <div id="processbar1" style="width:0%;";></div>
-                        </div>
-                    </h2>
-                    <h2>
-                        <div class="ui">
-                            <b>JAVASCRIPT</b>
-                        </div>
-                        <div class="processcontainer2">
-                            <div id="processbar2" style="width:0%;";></div>
-                        </div>
-                    </h2>
-                    <h2>
-                        <div class="ui">
-                            <b>TAKE</b>
-                        </div>
-                        <div class="processcontainer3">
-                            <div id="processbar3" style="width:0%;";></div>
-                        </div>
-                    </h2>
+                    <div class="box"></div>
                 </div>
             </div>
         </div>
@@ -172,36 +148,150 @@
         <div class="slide">
             <div class="zuopin">
                 <div class="hh">work</div>
-                <div class="fan"></div>
-                <div class="mi"></div>
-                <div class="mao"></div>
+                <a href="fanke/index1.html"><div class="fan"></div></a>
+                <a href="xm/mmm.html"><div class="mi"></div></a>
+                <a href="tm/index.html"><div class="mao"></div></a>
              </div>
         </div>
         <div class="slide">
-            <div class="zuopin">
+            <div class="zuopin1">
                 <div class="hh">work</div>
-                <div class="sao"></div>
-                <div class="dong"></div>
-                <div class="fa"></div>
+                <a href="sl/saolei.html"><div class="sao"></div></a>
+                <a href="jingdong/index.html"><div class="dong"></div></a>
+                <a href="sf/index.html"><div class="fa"></div></a>
             </div>
         </div>
         <div class="slide">
             <div class="zuopin">
                 <div class="hh">work</div>
-                <div class="dazi"></div>
-                <div class="yidong"></div>
-                <div class="huaban"></div>
+                <a href="dzyx/dzyx.html"><div class="dazi"></div></a>
+                <a href="yd/shouye.html"><div class="yidong"></div></a>
+                <a href="jsb/jishiben.html"><div class="huaban"></div></a>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="zuopin">
+                <div class="hh">work</div>
+                <a href="hb/huaban.html"><div class="huahua"></div></a>
+                <a href="apple/pinguo.html"><div class="apple"></div></a>
+                <a href="meishi/SY/shouye.html"><div class="meishi"></div></a>
             </div>
         </div>
     </div>
-
-
-
-
-        <!--<div class="slide">第三屏的第四屏</div>-->
-        <!-- 作品展示结束 -->
-
+    <div class="section">
+        <!-- 底部开始 -->
+        <div class="bottom">
+            <h1 style="text-align: center; margin-top: 10px; font-size: 60px;">contact me</h1>
+            <div class="bottom-main">
+                <div class="bottom-main-zhong">
+                    <div class="bottom-main-zhong-left">
+                        <ul>
+                            <li>联系方式</li>
+                            <li style="float: left;">
+                                <img src="img/dh1.jpg" alt="" style="float: left;width: 30px;height: 30px; border-radius: 50%">
+                                <div style="float: left;margin-top: -6px;margin-left: 8px">157-3516-6477</div>
+                            </li>
+                            <li style="float: left;">
+                                <img src="img/dh2.png" alt="" style="float: left;width: 30px;height: 30px; border-radius: 50%;border: 1px solid #000 " >
+                                <div style="float: left;margin-top: -6px;margin-left: 8px">1006558428@qq.com</div>
+                            </li>
+                            <li style="float: left; margin-left: -10px">
+                                <img src="img/dh3.jpg" alt="" style="float: left;margin-left: 2px; width: 50px;height: 50px; border-radius: 50%">
+                                <div style="float: left">山西省山西财政税务学校</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bottom-main-zhong-right">
+                        <li>留言反馈</li>
+                        <div class="per">
+                            <input type="text" placeholder="姓名" style="width: 164px;height: 34px; float: left;">
+                            <input type="text" placeholder="性別" style="width: 164px;height: 34px; float: right;">
+                        </div>
+                        <input type="text" placeholder="联系方式" style="width: 100%;height: 34px; float: right; margin-top: 18px">
+                        <input type="text" placeholder="请输入内容" style="width: 100%;height: 97px; float: right; margin-top: 18px">
+                        <input type="button" value="确认提交" style="width: 140px;height: 40px; border-radius: 10px; float: right; margin-top: 18px; background: #8D0000">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
+<script>
+    var box=document.querySelector(".box");
+    var myChart = echarts.init(box);
+    var option = {
+        backgroundColor: '#fff',
 
+        title: {
+            text: '能力展示',
+            left: 'center',
+            top: 20,
+            textStyle: {
+                color: '#000'
+            }
+        },
+
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+
+        visualMap: {
+            show: false,
+            min: 80,
+            max: 600,
+            inRange: {
+                colorLightness: [0, 1]
+            }
+        },
+        series : [
+            {
+                name:'',
+                type:'pie',
+                radius : '55%',
+                center: ['50%', '50%'],
+                data:[
+                    {value:335, name:'ps'},
+                    {value:310, name:'talk'},
+                    {value:274, name:'Ai'},
+                    {value:235, name:'take'},
+                    {value:400, name:'javascript'}
+                ].sort(function (a, b) { return a.value - b.value; }),
+                roseType: 'radius',
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: '#000'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        lineStyle: {
+                            color: '#000'
+                        },
+                        smooth: 0.2,
+                        length: 10,
+                        length2: 20
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '',
+                        shadowBlur: 10,
+                        shadowColor: ''
+                    }
+                },
+
+                animationType: 'scale',
+                animationEasing: 'elasticOut',
+                animationDelay: function (idx) {
+                    return Math.random() * 200;
+                }
+            }
+        ]
+    };
+    myChart.setOption(option);
+    </script>
 </html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    html,body{
+        height:100%;
+        overflow: hidden;
+        font-family: 黑体;
+    }
+    *{
+        user-select: none;
+        padding: 0;
+        margin: 0;
+    }
+    .scene{
+        width:100%;
+        height:100%;
+        /*background: red;*/
+        margin: 0 auto;
+        background-image: url("img/bg.png");
+        border: 2px solid #feff0e;
+        position: relative;
+    }
+    .main{
+        width:1200px;
+        height:100%;
+        float: left;
+        /*background: #29ffb5;*/
+    }
+    .control{
+        width:100%;
+        height:80px;
+        float: left;
+        /*background: #81F012;*/
+        /*opacity: 0.7;*/
+        /*position: relative;*/
+    }
+    .box{
+        width:10%;
+        height:50px;
+        float: left;
+        margin-top:30px;
+        margin-left: 80px;
+        border-radius: 10px;
+        background: rgb(255, 41, 250);
+    }
+    .box .name{
+        height:20px;
+        text-align: center;
+        line-height: 20px;
+    }
+      .box .scor,.state,.life{
+        width:60%;
+        height:30px;
+        margin: 0 auto;
+        background: #008fff;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 10px;
+    }
+    .letter {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 1px solid #64C333;
+        text-align: center;
+        line-height: 80px;
+        font-size: 30px;
+        position: absolute;
+        left: 0;
+        top:0;
+        background: #41ff17;
+    }
+    .btn{
+        width:80%;
+        height:30px;
+        margin: 0 auto;
+        margin-top: 10px;
+        border-radius: 5px;
+        color: #000;
+        font-family: 黑体;
+        /*font-size: 30px;*/
+        /*background: #56ff13;*/
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+    }
+    .xianshi{
+        float: right;
+        width: 350px;
+        height: 200px;
+        border-radius: 20px;
+        text-align: center;
+        background: #4ce996;
+        position: absolute;
+        left: 450px;
+        top: 230px;
+    }
+    .zhanshi{
+        float: right;
+        width: 350px;
+        height: 100%;
+        border-radius: 20px;
+        /*background: #4fe911;*/
+    }
+    .zhanshi0{
+        float: right;
+        width: 100%;
+        height: 50px;
+        /*background: #4fe911;*/
+    }
+    .zhanshi1{
+        float: right;
+        width: 100%;
+        height: 50px;
+        /*background: #4fe911;*/
+    }
+    .zhanshi2{
+        float: right;
+        width: 100%;
+        height: 50px;
+        /*background: #4fe911;*/
+    }
+    .paiming{
+        width:100%;
+        height: 60px;
+        line-height: 60px;
+        font-size: 30px;
+        border-radius: 20px;
+        border: 2px solid rgba(255, 255, 255, 0.38);
+        font-family: 黑体;
+        text-align: center;
+        color: #0F0E0E;
+        background: rgba(31, 139, 0, 0.17);
+        position: relative;
+    }
+     .start{
+        text-align: center;
+        line-height: 60px;
+        width:20%;
+        height:60px;
+        background: #B0E17C;
+        border-radius: 10px;
+         position: absolute;
+         left: 0;
+         top:0;
+         bottom: 0;
+         right: 0;
+         margin: auto;
+         color: #000;
+         transition: all 1s;
+         z-index: 99;
+        /*box-shadow: 2px 2px 2px 6px;*/
+    }
+    .control .pause{
+        line-height: 70px;
+        text-align: center;
+        width:70px;
+        height:70px;
+        float: left;
+        margin-left: 200px;
+        background: #3250ff;
+        border-radius: 50%;
+        /*box-shadow: 2px 2px 2px 6px;*/
+    }
+    .pause:hover{
+        transition: all 1s;
+        transform: rotate(360deg);
+    }
+    .music {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: url("img/music.png") no-repeat center;
+        position: absolute;
+        left: 0;
+        top: 0px;
+        z-index: 9999;
+        background-color: #48fe10;
+        border: 3px solid #fff;
+        animation: rotate 3s linear infinite;
+        cursor: pointer;
+    }
+    .musicr{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: url("img/music.png") no-repeat center;
+        position: absolute;
+        right: 0;
+        top: 0px;
+        z-index: 9999;
+        background-color: #48fe10;
+        border: 3px solid #fff;
+        animation: rotate 3s linear infinite;
+        cursor: pointer;
+    }
+    @keyframes rotate{
+        0%{
+            transform:rotate(0deg);
+        }
+        100%{
+            transform:rotate(360deg);
+        }
+    }
+    .zailai{
+        text-align: center;
+        line-height:70px;
+        text-align: center;
+        width:70px;
+        height:70px;
+        float: left;
+        margin-top: 10px;
+        margin-left:200px;
+        background: #ff9931;
+        border-radius: 50%;
+    }
+    .zailai:hover{
+        transition: all 1s;
+        transform: rotate(360deg);
+    }
+
+</style>
+
+<body>
+    <div class="scene">
+        <div class="control">
+            <div class="box">
+                <div class="name">得分</div>
+                <div class="scor">0</div>
+            </div>
+            <div class="box">
+                <div class="name">关卡</div>
+                <div class="state">1</div>
+            </div>
+            <div class="box">
+                <div class="name">生命</div>
+                <div class="life">5</div>
+            </div>
+            <div class="zailai">重新开始</div>
+            <div class="btn pause">暂停</div>
+        <div class="main">
+            <div class="btn start">开始</div>
+            </div>
+        </div>
+
+        <div class="xianshi">
+            <div class="paiming">
+                风云榜
+                <div class="music"></div>
+                <div class="musicr"></div>
+            </div>
+            <div class="zhanshi">
+                <div class="zhanshi0"></div>
+                <div class="zhanshi1"></div>
+                <div class="zhanshi2"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jQuery.js"></script>
+<script>
+    // onkeydown onkeypress onkeyup
+    //window  document
+//    document.onkeydown=function (w) {
+//        console.log(w.altKey)
+//    }
+
+    //面向对象
+    var main = document.querySelector(".main");
+    var start=document.querySelector(".start");
+    var scor=document.querySelector(".scor");
+    var state=document.querySelector(".state");
+    var life=document.querySelector(".life");
+    var pause=document.querySelector(".pause");
+    var zhanshi1=document.querySelector(".zhanshi1")
+    var zhanshi2=document.querySelector(".zhanshi2")
+    var zhanshi0=document.querySelector(".zhanshi0")
+    class Game{
+        constructor(main,scor,state,life){
+//            this.zhanshi=zhanshi;
+            this.main=main;
+            this.num = 3;
+            this.obj = {};
+            this.scorele=scor;
+            this.scor=0;
+            this.stateele=state;
+            this.state=1;
+            this.life=5;
+            this.lifeele=life;
+            this.speed=5;
+            this.height=window.innerHeight;
+            this.st;
+            this.best=localStorage.best?JSON.parse(localStorage.best):[];
+        }
+        _createLetter(){
+            var div = document.createElement("div");
+            div.className = "letter";
+            do {
+                var rn = Math.floor(Math.random() * 26 + 65);
+                var le = String.fromCharCode(rn);
+            } while (this.obj[le]);
+            this.obj[le] = true;//只要是真值
+
+
+            div.innerHTML = le;
+            do {
+                var rl = Math.random() * 720;
+            } while (this._check(rl));
+            var rt = -Math.random() * 100;
+            this.obj[le] = {left: rl,top:rt,ele:div};
+
+            div.style.left = rl + "px";
+
+            div.style.top = rt + "px";
+
+            main.appendChild(div);
+        }
+        _check(left) {
+            for (var i in this.obj) {
+                if (left > this.obj[i].left - 100 && left < this.obj[i].left + 100) {
+                    return true;
+                }
+            }
+        }
+        start(){
+            for (var i = 0; i < this.num; i++) {
+                this._createLetter();
+            }
+            this._move();
+            this._keydown();
+            this.best=localStorage.best?JSON.parse(localStorage.best):[];
+        }
+        pause(){
+            clearInterval(this.st)
+            document.onkeydown="";
+        }
+        play(){
+            this._move();
+            this._keydown()
+        }
+        _move(){
+            this.st=setInterval(function(){
+                for(var i in this.obj){
+                    var t=this.obj[i].top;
+                    t+=this.speed;
+                    this.obj[i].top=t;
+                    this.obj[i].ele.style.top=t+"px";
+                    if(t>this.height){
+                        this.life--;
+                        this.lifeele.innerHTML=this.life;
+                        this.main.removeChild(this.obj[i].ele);
+                        delete  this.obj[i];
+                        this. _createLetter();
+                    }
+                    if(this.life==-1){
+
+                        this._gameover();
+                        return;
+                    }
+                }
+            }.bind(this),50);
+        }
+        _keydown(){
+            document.onkeydown=function(e){
+                var keyCode=e.keyCode;
+                var le=String.fromCharCode(keyCode);
+                if(this.obj[le]){
+                    main.removeChild(this.obj[le].ele);
+                    delete this.obj[le];
+                    this.scor++;
+                    this.scorele.innerHTML=this.scor;
+                    if(this.scor%3==0){
+                        this._upstate();
+                    }
+                    this._createLetter();
+                }
+            }.bind(this)
+        }
+        _upstate(){
+            this.state++;
+            this.stateele.innerHTML=this.state;
+           if(this.state<=3){
+               this._createLetter();
+          }else{
+              this.speed++;
+           }
+        }
+        _gameover(){
+            alert("游戏结束")
+            if(this.best.length<3||(this.best.length>=3&&this.scor>this.best[2].scor)){
+                var player=prompt("请报上名号");
+                this.best.push({player,scor:this.scor});
+            this.best.sort(function(a,b) {
+                if(a.scor>b.scor){
+                    return -1;
+                }else{
+                    return 1;
+                }
+            });
+            if(this.best.length>3){
+                this.best.pop()
+            }
+            localStorage.best=JSON.stringify(this.best);
+            }
+//           zhanshi0.innerHTML="姓名"+player;
+            zhanshi1.innerHTML="最高分为"+"： "+this.best[0].scor+"分";
+            zhanshi2.innerHTML="你的分数为"+"： "+this.scor+"分";
+//            zhanshi.innerHTML="最高分"+this.scor;
+
+            $(".xianshi").show(1500)
+            this.main.innerHTML=null;
+            this.speed=5;
+            this.obj={};
+            this.scor=0;
+            this.scorele.innerHTML=0;
+            this.state=1;
+            this.stateele.innerHTML=1;
+            this.life=5;
+            this.lifeele.innerHTML=5;
+            clearInterval(this.st);
+            startcontor=true;
+//            return;
+        }
+    }
+    var game=new Game(main,scor,state,life);
+    var startcontor=true;
+    start.onclick=function () {
+        if(startcontor){
+            startcontor=false;
+            game.start();
+            $(".start").hide()
+        }
+    }
+    pause.onclick=function(){
+        if(startcontor){
+            pause.innerHTML="暂停"
+            game.play()
+        }else{
+            pause.innerHTML="继续"
+            game.pause()
+        }
+        startcontor=!startcontor;
+    }
+    $(".start").hover(function () {
+        $(".start").css({left:50})
+    },function () {
+        $(".start").css({left:0})
+    })
+    $(".zailai").click(function () {
+       console.log(1)
+        $(".xianshi").hide()
+        $(".zhanshi1").empty()
+        $(".zhanshi2").empty()
+        if(startcontor){
+            startcontor=false;
+            game.start();
+            $(".start").hide()
+        }
+    })
+    $(".xianshi").hide()
+</script>
+</html>

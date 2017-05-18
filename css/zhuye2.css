@@ -150,7 +150,7 @@ header nav main .min-nav{
 	left: 0px;
 	top: 0px;
 	background: black;
-	opacity: 0.6;
+	opacity: 0.5;
 }
 .bannerwen{
 	width: 100%;
@@ -239,68 +239,38 @@ header nav main .min-nav{
 	float: left;
 	margin-top: 20px;
 }
-.di-right h2{
+.box{
+	width: 100%;
+	height: 300px;
+	margin-top: 20px;
+	float: left;
+	margin-left: -30px;
+}
+.zuopin1{
+	padding:10px 50px;
 	width: 100%;
 	height: 100%;
-	float: left;
-	margin-top: 30px;
-
-}
-.di-right h2 .ui{
-     width: 100%;
-     height: 20px;
-     font-size: 15px;
-     float: left;
-     color: #000;
-}
-/* .di-right h2 .xiahei{
-	width: 60px;
-	height: 10px;
-} */
-.xiahui{
-	display: block;
-    height: 10px;
-    background: #d6d6d6;
-    position: relative;
-    margin-top: 30px;
-    width: 80%;
-    border-radius: 5px;
-}
-.shanghei{
-	width: 80%;
-	height: 10px;
-}
-.shanghei{
-	position: absolute;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background: #222;
-    border-radius: 5px;
-}
-.shanghei span{
-	position: absolute;
-    right: 10px;
-    top: -18px;
-    font-size: 13px;
-}
- .s1{
-     width: 85%;
-}
-.s2{
-     width: 90%;
-}
- .s3{
-     width: 95%;
+	background-image: url('../img/jhk.jpg');
+	background-size: 100%;
+	position: relative;
 }
 .zuopin{
 	padding:10px 50px;
 	width: 100%;
 	height: 100%;
-	background-image: url('../img/jhk.jpg');
+	background-image: url('../img/jhk1.jpg');
+	background-size: 100%;
 	position: relative;
 }
-
+.maskk{
+	width: 100%;
+	height: 100%;
+	background: black;
+	opacity: 0.6;
+	position: absolute;
+	left: 0;
+	top:0;
+}
 .hh{
 	width: 100%;
 	color: #fff;
@@ -321,6 +291,7 @@ header nav main .min-nav{
 	border:1px solid #000000;
 	background-image: url('../img/fan.png');
 	background-size:110% ;
+	z-index: 33;
 }
 .fan:hover{
 	box-shadow: 0px 3px 20px 8px rgba(0,0,0,0.1);
@@ -373,6 +344,21 @@ header nav main .min-nav{
 .huaban:hover{
 	box-shadow: 0px 3px 20px 8px rgba(0,0,0,0.1);
 	transform: translateY(-3px);
+	transition: all 2s;
+	transform: rotateY(360deg);
+}
+.apple:hover{
+	box-shadow: 0px 3px 20px 8px rgba(0,0,0,0.1);
+	transition: all 2s;
+	transform: rotate(360deg);
+}
+.huahua:hover{
+	box-shadow: 0px 3px 20px 8px rgba(0,0,0,0.1);
+	transition: all 2s;
+	transform: rotateY(360deg);
+}
+.meishi:hover{
+	box-shadow: 0px 3px 20px 8px rgba(0,0,0,0.1);
 	transition: all 2s;
 	transform: rotateY(360deg);
 }
@@ -461,6 +447,142 @@ header nav main .min-nav{
 	margin-left: 160px;
 	margin-top: 120px;
 	border:1px solid #000000;
-	background-image: url('../img/huaban.jpg');
-	background-size:115% ;
+	background-image: url('../img/jsb.jpg');
+	background-size:105% ;
+}
+.apple{
+	width:200px;
+	height: 200px;
+	border-radius: 50%;
+	float: left;
+	margin-left: 160px;
+	margin-top: 120px;
+	border:1px solid #000000;
+	background: #040909;
+	background-image: url('../img/gg.png');
+	background-size:93% ;
+}
+.huahua{
+	width:200px;
+	height: 200px;
+	border-radius: 50%;
+	float: left;
+	margin-left: 160px;
+	margin-top: 120px;
+	border:1px solid #000000;
+	background-image: url('../img/huahua.jpg');
+	background-size:95% ;
+}
+.meishi{
+	width:200px;
+	height: 200px;
+	border-radius: 50%;
+	float: left;
+	margin-left: 160px;
+	margin-top: 120px;
+	border:1px solid #000000;
+	background-image: url('../img/msms.jpg');
+	background-size:100% ;
+}
+.bottom{
+	width: 100%;
+	height: 100%;
+	float: left;
+	background: #fff9f9;
+}
+.bottom-main{
+	width: 1200px;
+	height: 100%;
+	margin: 0 auto;
+}
+.bottom-main-top{
+	width: 100%;
+	height: 114px;
+	float: left;
+	/* background: #fff; */
+}
+.bottom-main-top img{
+	display: block;
+	float: left;
+	margin-top: 68px;
+}
+.bottom-main-zhong{
+	width: 100%;
+	height: 355px;
+	float: left;
+	margin-top: 150px;
+	border-bottom: 1px solid #2F2F2F;
+}
+.bottom-main-zhong-left{
+	width: 800px;
+	height: 100%;
+	float: left;
+	margin-top: 0px;
+	/* background: red; */
+}
+.bottom-main-zhong-left ul{
+	height: auto;
+	width: 600px;
+	margin-left: 80px;
+	float: left;
+}
+.bottom-main-zhong-left ul li{
+	width: 100%;
+	height: 45px;
+	font-size: 18px;
+	margin-top: 20px;
+	color: #878787;
+	line-height: 45px;
+}
+.bottom-main-zhong-left ul li:nth-child(1){
+	font-size: 22px;
+}
+.bottom-main-zhong-right{
+	width: 381px;
+	height: 100%;
+	float: right;
+	/* background: red; */
+}
+.bottom-main-zhong-right li{
+	width: 100%;
+	height: 45px;
+	font-size: 18px;
+	color: #878787;
+	line-height: 45px;
+	border-radius: 10px;
+}
+input{
+	outline: none;
+	border: none;
+	background: #6F6E70;
+	border-radius: 10px;
+}
+.per{
+	width: 100%;
+	height: 34px;
+	float: left;
+	margin-top: 18px;
+}
+.bottom-main-bottom{
+	width: 100%;
+	height: 93px;
+	float: left;
+	/* background: pink; */
+}
+.bottom-main-bottom img{
+	height: 100%;
+	width: 100%;
+}
+.log img{
+	height: 40px;
+	width: 140px;
+	float: left;
+	margin-top: 12px;
+}
+.bottom-main-bottom pre{
+	float: left;
+	margin-left: 246px;
+	margin-top: 30px;
+	font-size: 15px;
+	color: #fff;
 }

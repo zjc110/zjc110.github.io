@@ -1,0 +1,12 @@
+*{
+	padding: 0px;
+	margin:0px;
+	box-sizing: border-box;
+	text-decoration: none;
+}
+ul,li{
+	list-style: none;
+}
+a{
+	color:#666666;
+}

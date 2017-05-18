@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            user-select: none;
+        }
+        ul{
+            list-style: none;
+            margin:0;
+            padding:0;
+        }
+        .scene {
+            width:300px;
+            height:300px;
+            border-top: 1px solid #5E6271;
+            border-left: 1px solid #5E6271;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .mask{
+            width: 300px;
+            height: 300px;
+            background: rgba(23, 17, 21, 0.53);
+            position:absolute ;
+            top:0;
+            left:0;
+            background-image: url("saolei.jpg");
+            background-size: 100%;
+
+        }
+        .block {
+            width:29px;
+            height: 29px;
+            background: #060b01;
+            float: left;
+            border-right: 1px solid #5E6271;
+            border-bottom: 1px solid #5E6271;
+        }
+
+        .lei {
+
+        }
+
+        .show {
+            background-image: url("lei.jpg") ;
+            background-size: 100%;
+        }
+
+        .num {
+            background: rgba(51, 24, 27, 0.45);
+            text-align: center;
+            line-height: 25px;
+        }
+
+        .control {
+            width:120px;
+            height: 300px;
+            border-radius: 10px;
+            position: fixed;
+            left: 20px;
+            top:20px;
+            background: rgb(13, 11, 9);
+            display: none;
+        }
+        .flag{
+            background:url("su.jpg") ;
+            background-size: 100%;
+        }
+        time{
+            width:100px;
+            height:30px;
+            border-radius: 6px;
+            float: left;
+            margin-left: 10px;
+            margin-top: 10px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 20px;
+            font-family: 黑体;
+            color: #fff;
+        }
+        .flagnum{
+            width:100px;
+            height:30px;
+            border-radius: 6px;
+            float: left;
+            margin-left: 10px;
+            margin-top: 10px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 20px;
+            font-family: 黑体;
+        }
+        .restart,.moshi,.phb{
+            width:100px;
+            height:30px;
+            border-radius: 6px;
+            float: left;
+            margin-left: 10px;
+            margin-top: 10px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 20px;
+            font-family: 黑体;
+            cursor: pointer;
+        }
+        .restart{
+            background: #ff1947;
+        }
+        .flagnum{
+            background: #211cff;
+        }
+        .moshi{
+            position: relative;
+            background: #fffd37;
+
+        }
+        .phb{
+            background: #3cff91;
+
+        }
+        .phb{
+            position:relative;
+            height:auto;
+        }
+        .bang{
+            width:200px;
+            height:100px;
+            position:absolute;
+            top:45px;
+            left:0px;
+            display:none;
+        }
+        .bang li{
+            width:100px;;
+            height:autopx;
+            font-size: 15px;
+            /*margin-bottom:5px;*/
+            background: #ffdd13;
+            border-radius: 10px;
+            color: #fff;
+        }
+        .play{
+            width:100px;
+            height:100px;
+            border-radius: 50%;
+            position:absolute;
+            left:0;
+            right:0;
+            top:0;
+            bottom: 0;
+            margin:auto;
+            text-align: center;
+            line-height: 100px;
+            color: #f1fff6;
+            font-size: 30px;
+            background: #000000;
+            cursor: pointer;
+        }
+        .play:hover{
+            transition: all 2s;
+            transform: rotate(360deg);
+        }
+        .difficult{
+            width:100px;height:60px;
+            border-radius: 10px;
+            background: rgba(255, 253, 241, 0);
+            position: absolute;
+            left:120px;top:-15px;
+            background-size: 100%;
+            margin:auto;
+            z-index: 3;
+            display:none;
+        }
+        .choosebox{
+            width:100%;height:93px;
+            margin-top:20px;
+            display:flex;
+            justify-content:space-around;
+        }
+        .choosebox div{
+            width:60px;height:30px;
+            border-radius: 10px;
+            cursor:pointer;
+            transition:all .5s;
+            background-size: 100%;
+        }
+        .choosebox div:hover{
+            transform:scale(1.1);
+        }
+        .easy{
+            background:#00C0A5;
+            text-align: center;
+            line-height: 30px;
+            font-size: 16px;
+        }
+        .medium{
+            background:#64C333;
+            text-align: center;
+            line-height: 30px;
+            font-size: 16px;
+        }
+        .hard{
+            background:red;
+            text-align: center;
+            line-height: 30px;
+            font-size: 16px;
+        }
+
+        .zhezhao{
+            width: 500px;
+            height:500px;
+            position:absolute;
+            top:0;
+            left:0;
+            disply:none;
+        }
+    </style>
+</head>
+<body>
+<div class="scene">
+
+    <div class="mask">
+        <h1>扫雷游戏</h1>
+        <div class="play">
+            PLAY
+        </div>
+    </div>
+
+</div>
+
+<div class="control">
+    <time> <span class="time">00:00</span> </time>
+    <div class="flagnum">flag:10</div>
+    <div class="restart">重新开始</div>
+    <div class="moshi">
+        难度选择
+        <div class="difficult">
+            <div class="choosebox">
+                <div class="easy">简单</div>
+                <div class="medium">一般</div>
+                <div class="hard">困难</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="phb">
+        排行榜
+        <ul class="bang">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+</body>
+<script src="jQuery.js"></script>
+<script>
+    //    window.onload       $(function () {})
+    $(document).ready(function () {
+        var num=10;
+        var num1=10;
+        var besttime=localStorage.besttime?JSON.parse(localStorage.besttime):[];
+        var besttime1=localStorage.besttime1?JSON.parse(localStorage.besttime1):[];
+        var besttime2=localStorage.besttime2?JSON.parse(localStorage.besttime2):[];
+        var kz=0;
+        function createScene() {
+            do {
+                $(".scene").empty();
+                for (var i = 0; i < 10; i++) {
+                    for (var j = 0; j < 10; j++) {
+                        var isLei = Math.random() > 1-num/100;
+                        $("<div>").addClass(function () {
+                            if (isLei) {
+                                return "block lei";
+                            } else {
+                                return "block";
+                            }
+                        }).attr("id", i + "-" + j).data("pos", {x: i, y: j}).mousedown(mousedownEvent).appendTo(".scene");
+                    }
+                }
+            } while ($(".lei").length != num)
+        }
+
+        function mousedownEvent(e) {
+            if (e.which == 1) {
+                leftclick.call(this);
+            } else {
+                rightclick.call(this);
+            }
+        }
+
+        function leftclick() {
+            if($(this).hasClass("flag")){
+                return;
+            }
+            if ($(this).hasClass("lei")) {
+                $(".lei").addClass("show");
+                alert("游戏结束，请重新开始")
+                clearInterval(t);
+                $("<div>").addClass("zhezhao").appendTo(".scene");
+            } else {
+                $(this).addClass("num")
+                var pos = $(this).data("pos");
+                var n = 0;
+                for(var i=pos.x-1;i<=pos.x+1;i++){
+                    for(var j=pos.y-1;j<=pos.y+1;j++){
+                        if($("#"+i+"-"+j).hasClass("lei")){
+                            n++;
+                        }
+                    }
+                }
+                $(this).html(n);
+                if(n==0){
+                    for(var i=pos.x-1;i<=pos.x+1;i++){
+                        for(var j=pos.y-1;j<=pos.y+1;j++){
+                            var obj=$("#"+i+"-"+j);
+                            if(obj.length==1&&!obj.hasClass("num")){
+                                leftclick.call(obj[0])
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        function rightclick() {
+            if($(this).hasClass("num")){
+                return;
+            }
+            if($(this).hasClass("flag")){
+                $(this).removeClass("flag");
+                num++;
+            }else{
+                num--;
+                if(num<0){
+                    num++;
+                    alert("game over");
+                    clearInterval(t);
+                    return;
+                }
+                $(this).addClass("flag");
+                if(num==0){
+                    if($(".flag").filter(".lei").length==num1){
+                        alert("success");
+                        clearInterval(t);
+                        phb();
+                    }
+                }
+            }
+            $(".flagnum").html("flag:"+num);
+        }
+
+        $(".play").click(function () {
+            $(".mask").css("display","none");
+            $(".control").show(1000)
+            createScene();
+            t=setInterval(time,1000);
+        })
+
+        $(".moshi").click(function () {
+
+            $(".difficult").css("display","block");
+        })
+        $(".easy").click(function () {
+            clearInterval(t);
+            $(".difficult").css("display","none");
+            num=10;
+            num1=10;
+            a=0;
+            createScene();
+            t=setInterval(time,1000);
+             besttime=localStorage.besttime?JSON.parse(localStorage.besttime):[];
+            kz=0
+        })
+        $(".medium").click(function () {
+            clearInterval(t);
+            $(".difficult").css("display","none");
+            num=12;
+            num1=12;
+            a=0;
+            $(".flagnum").html("flag:"+num1);
+            createScene();
+            t=setInterval(time,1000);
+            besttime1=localStorage.besttime1?JSON.parse(localStorage.besttime1):[];
+            kz=1
+        })
+        $(".hard").click(function () {
+            clearInterval(t);
+            $(".difficult").css("display","none");
+            num=15;
+            num1=15;
+            a=0;
+            $(".flagnum").html("flag:"+num1);
+            createScene();
+            t=setInterval(time,1000);
+            besttime2=localStorage.besttime2?JSON.parse(localStorage.besttime2):[];
+            kz=2
+        })
+        //清除浏览器默认右击事件
+        $(document).on("contextmenu", function (e) {
+            e.preventDefault();
+        })
+        var t;
+        var a=0;
+        function time() {
+            a++;
+            var b=0,c=0;
+            if(a>=60){
+                b=Math.floor(a/60);
+                c=a%60;
+            }else{
+                b=0;
+                c=a;
+            }
+            $(".time").html((b<10?"0"+b:b)+":"+(c<10?"0"+c:c));
+        }
+        $(".restart").click(function () {
+            gameover();
+            createScene();
+
+            t=setInterval(time,1000);
+
+
+        })
+//        console.log(besttime)
+        reWrite();
+        function phb() {
+            if(kz==0){
+                if(besttime.length<3 || (besttime.length>=3 && $(".time").html()<besttime[2].scor)){
+                    var player=prompt("请输入姓名");
+                    besttime.push({player,time:$(".time").html()});
+                    besttime.sort(function (a,b) {
+                        if(a.time<b.time){
+                            return -1;
+                        }else{
+                            return 11;
+                        }
+                    })
+                    if(besttime.length>3){
+                        besttime.pop();
+                    }
+
+                    localStorage.besttime=JSON.stringify(besttime);
+                }
+            }
+            if(kz==1){
+                if(besttime1.length<3 || (besttime1.length>=3 && $(".time").html()<besttime1[2].scor)){
+                    var player=prompt("请输入姓名");
+                    besttime1.push({player,time:$(".time").html()});
+                    besttime1.sort(function (a,b) {
+                        if(a.time<b.time){
+                            return -1;
+                        }else{
+                            return 11;
+                        }
+                    })
+                    if(besttime1.length>3){
+                        besttime1.pop();
+                    }
+
+                    localStorage.besttime1=JSON.stringify(besttime1);
+                }
+            }
+            if(kz==2){
+                if(besttime2.length<3 || (besttime2.length>=3 && $(".time").html()<besttime2[2].scor)){
+                    var player=prompt("请输入姓名");
+                    besttime2.push({player,time:$(".time").html()});
+                    besttime2.sort(function (a,b) {
+                        if(a.time<b.time){
+                            return -1;
+                        }else{
+                            return 11;
+                        }
+                    })
+                    if(besttime2.length>3){
+                        besttime2.pop();
+                    }
+
+                    localStorage.besttime2=JSON.stringify(besttime2);
+                }
+            }
+
+            reWrite();
+        }
+
+        function reWrite(){
+            if(kz==0){
+                var data=besttime;
+            }else if(kz==1){
+                var data=besttime1;
+            }else if(kz==2){
+                var data=besttime2;
+            }
+
+            var str="";
+            data.forEach(function (v) {
+                str+=`<li>${v.player}    ${v.time}</li>`
+            })
+
+            $(".bang").html(str);
+        }
+        function gameover() {
+            clearInterval(t);
+            $(".time").html("00:00");
+            $(".flagnum").html("flag:"+num1);
+            a=0;
+            num=num1;
+        }
+
+        $(".phb").click(function () {
+            $(".bang").slideToggle(500);
+        })
+
+    })
+</script>
+</html>
