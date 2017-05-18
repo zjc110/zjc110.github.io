@@ -1,0 +1,339 @@
+
+	.header-top{
+	width: 100%;
+	height: 40px;
+	background: #444;
+
+}
+   .header-top main div{
+	font-size: 12px;
+	float: right;
+	line-height: 40px;
+	color: #a8a8aa;
+}
+
+header nav{
+	width:100%;
+	height:44px;
+	background:#000;
+	opacity:0.8; 
+}
+
+     header nav ul{
+/* 变两端对齐，但是有bug */
+text-align:justify;
+/* 垂直居中 */
+line-height:40px;
+color:#fff;
+}
+/* 解决两端对齐的bug */
+header nav ul:after{
+content:"";
+/* 导航的的文字变行内块元素*/
+display:inline-block;
+height:0;
+width:100%;
+}
+header nav ul li{
+ display:inline-block;
+ }
+ .banner{
+	width:100%;
+	height:550px;
+	position:relative; 
+ /*  background:yellow; */	
+}
+.banner .banner-box{
+	width:100%;
+	height: 100%;
+}
+.banner-box a{
+	display:block;
+	width: 100%;
+	height: 100%;
+}
+.banner .banner-box1{
+}
+.banner-box1 a{
+	display:block;
+}
+.banner .left-btn{
+  width:20%;
+  height:100%;
+  position: absolute;
+  left:0;
+  top:0;
+  margin:auto;
+  /* background: pink */
+  }
+  .banner .right-btn{
+  width:20%;
+  height:100%;
+  position: absolute;
+  right:0;
+  top: 0;
+  margin:auto;
+ /*  background: pink */
+  }
+  .banner .btn{
+  	width:25px;
+  	height: 25px;
+  	background: #ccc;
+   position: absolute;
+   top:0;
+   bottom:0;
+   margin: auto;
+  }
+ .banner .right-btn .btn{
+  right: 20px;
+ }
+  .banner .left-btn .btn{
+  left: 20px;
+ }
+ .banner .btn{
+ 	height:64px;
+ 	width:64px;
+ 	border-radius:50%;
+ 	font-size:30px;
+ 	color:#fff;
+ 	text-align:center;
+ 	line-height: 64px;
+ }
+ .picture{
+width: 100%;
+height:200px;
+  }
+.picture div{
+	float:left;
+	width:25%;
+	height:100%; 
+}
+@media screen and (min-width: 1024px){
+.header-top main{
+	    max-width:976px;
+		height: 100%;
+		/* background: red; */
+		margin: 0 auto;
+}
+/* 导航背景大屏的显示 */
+
+/* 导航主体内容大屏的显示 */
+header nav main{
+	width:1024px;
+	height:100%;
+    margin: 0 auto;}
+header nav main .min-nav{
+		display:none;
+	}
+	
+  .banner-box a{
+  	background-image:url('../Images/macbookpro_large.jpg'); 
+  	background-position:center center;
+  	background-size:contain;
+  	background-repeat:no-repeat;
+  }
+ .p1{
+	background-image:url('../Images/x_large.jpg'); 
+  }
+  
+  .p2{
+  	background-image:url('../Images/x2_large.jpg'); 
+  }
+  .p3{
+  	background-image:url('../Images/x3.jpg'); 
+  }
+  .p4{
+  	background-image:url('../Images/x4_large .jpg'); 
+  }
+   .picture2{
+  	display:none; 
+  }
+     .picture3{
+  	display:none; 
+  }
+  .max-footer main{
+  	width:1024px;
+  	margin:0 auto;
+  }
+  .min-footer{
+  	display:none;
+  } 
+}
+
+/* 小于1024的显示 */
+@media screen and (max-width:1024px){ hu
+	 .header-top main{
+		padding: 0 25px;
+		height: 100%;
+		margin: 0 auto;
+	}
+	header nav main{
+		padding: 0 22px;
+		height: 100%;
+		margin: 0 auto;
+	} 
+	.banner-box a{
+  	background-image:url('../Images/macbookpro_medium.jpg'); 
+  	background-position:center center;
+  	background-size:contain;
+  	background-repeat:no-repeat;
+  } 
+  .picture{
+  	display:none; 
+  }
+
+
+}
+
+	/* 小于768的显示 大屏隐藏 小屏显示*/
+  @media screen and (max-width: 768px){
+		header nav main .max-nav{
+		display:none;
+	}
+	header nav main .min-nav{
+		display:block;
+	}
+	.picture3{
+		display: block;
+	}
+	.picture2{
+		display:none;
+	}
+	.max-footer main{
+		display:none;
+	}
+	.min-footer{
+		display:block;
+	}
+	.min-footer main{
+		padding:0 20px;
+	}
+
+
+}
+  @media screen and (min-width:768px) and  (max-width:1024px){
+  	.picture3{
+		display: none;
+	}
+		.picture2{
+		display:block;
+	}
+	 .max-footer main{
+  	padding:0px 20px;
+  }
+    .min-footer{
+  	display:none;
+  }
+  }
+   @media screen and (min-width:768px){
+		header nav main .max-nav{	
+		display:block;
+	}
+	header nav main .min-nav{
+		display:none;
+	}
+	
+}
+	/* 中屏 */
+.picture2{
+ width:100%;
+ height:400px;
+}
+.kuang{
+	float:left;
+	width:100%;
+	height:200px; 
+}
+.kuang img{
+	float:left;
+	width:50%;
+	height:200px; 
+}
+.picture3 img{
+	width:100%;
+	height:200px;  
+}
+/* 底部 */
+.text{
+	margin: 0 auto;
+	width:100%;
+	line-height:48px;
+	font-size: 11px;
+	color:#A2A2CA;
+	font-weight: 400;
+	border-bottom:1px solid #D6D6D6;
+}
+.text2{
+	width:100%;
+	height:230px;
+	padding-top:20px;
+	margin: 0 auto;
+
+}
+.text2 ul{
+	font-size: 12px;
+    float:left;
+    color: #555555;
+    padding-right:5% ;
+    padding-left:2%;
+}
+.text2 ul li{
+	 padding-bottom:5px ;
+}
+.text ul li{
+	float:left;
+	padding-right:7px; 
+}
+
+.text3{
+	margin:0 auto;
+	float:left;
+	width:100%;
+	line-height:12px; 
+	font-size: 11px;
+	color:#A2A2CA;
+	font-weight: 400;
+}
+.footer2  li{
+	margin: 0 auto;
+	width:100%;
+	line-height:48px;
+	font-size: 12px;
+	font-weight:bold;
+	color:#A2A2CA;
+	font-weight: 400;
+	border-bottom:1px solid #D6D6D6;
+}
+.right{
+	float:right;
+}
+.tu{
+	
+	width:100%;
+	height:20px; 
+}
+.text4{
+	margin:0 auto;
+	float:left;
+	width:100%;
+	line-height:12px; 
+	font-size: 11px;
+	color:#A2A2CA;
+	padding: 15px 5px;	
+}
+.banner .btn{
+opacity:0;
+}
+ @keyframes xianshi{
+ 0%{ opacity:0; }
+ 10%{ opacity:0.1; }
+ 30%{ opacity:0.3; }
+ 40%{ opacity:0.4; }
+ 50%{ opacity:0.5; }
+ 70%{ opacity:0.7; }
+ 80%{ opacity:0.3; }
+ 100%{ opacity:0.7; }
+ }
+ .banner .btn:hover{
+animation:xianshi .5s linear forwards;   
+ }
