@@ -833,8 +833,8 @@ header a{
 }
 .ban_y3{
 	height: 210px;
-    background-image: url(../img/sprite_fs@1x.png);
-    background-size: 188px 241px;
+    /*background-image: url(../img/sprite_fs@1x.png);*/
+    /*background-size: 188px 241px;*/
 }
 .huabox{
 	width: 46px;
@@ -2858,12 +2858,47 @@ nav .nk .submit{
     width: 24px;
     height: 24px;
     margin: 0 12px;
-    /*background-image: url(../img/sprite_fs@1x.png);*/
-    /*background-repeat: no-repeat;*/
-    /*background-size: 156px 148px;*/
+    background-image: url(../img/sprite_fs@1x.png);
+    background-repeat: no-repeat;
+    background-size: 156px 148px;
+    z-index: 999;
 }
-
-
+.tuu1{
+    background-position: 0 -88px;
+}
+.tuu2{
+    background-position: 0 -44px;
+}
+.tuu3{
+    background-position: -44px -88px;
+}
+.tuu4{
+    background-position: -88px 0;
+}
+.tuu5{
+    background-position: -88px -44px;
+}
+.tuu6{
+    background-position: 0 0;
+}
+.tuu7{
+    background-position: -44px -44px;
+}
+.tuu8{
+    background-position: -88px -88px;
+}
+.tuu9{
+    background-position: -132px 0;
+}
+.tuu10{
+    background-position: -132px -44px;
+}
+.tuu11{
+    background-position: -132px -88px;
+}
+.tuu12{
+    background-position: -44px 0;
+}
 .rightbar{
     position: fixed;
     right: 0;
