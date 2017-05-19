@@ -52,7 +52,7 @@
         text-align: center;
         line-height: 20px;
     }
-      .box .scor,.state,.life{
+    .box .scor,.state,.life{
         width:60%;
         height:30px;
         margin: 0 auto;
@@ -62,17 +62,18 @@
         border-radius: 10px;
     }
     .letter {
-        width: 80px;
-        height: 80px;
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
-        border: 1px solid #64C333;
+        /*border: 1px solid #64C333;*/
         text-align: center;
         line-height: 80px;
-        font-size: 30px;
+        font-size: 0px;
+        background-size: 100%;
         position: absolute;
         left: 0;
         top:0;
-        background: #41ff17;
+        /*background: #41ff17;*/
     }
     .btn{
         width:80%;
@@ -137,22 +138,22 @@
         background: rgba(31, 139, 0, 0.17);
         position: relative;
     }
-     .start{
+    .start{
         text-align: center;
         line-height: 60px;
         width:20%;
         height:60px;
         background: #B0E17C;
         border-radius: 10px;
-         position: absolute;
-         left: 0;
-         top:0;
-         bottom: 0;
-         right: 0;
-         margin: auto;
-         color: #000;
-         transition: all 1s;
-         z-index: 99;
+        position: absolute;
+        left: 0;
+        top:0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        color: #000;
+        transition: all 1s;
+        z-index: 99;
         /*box-shadow: 2px 2px 2px 6px;*/
     }
     .control .pause{
@@ -226,48 +227,48 @@
 </style>
 
 <body>
-    <div class="scene">
-        <div class="control">
-            <div class="box">
-                <div class="name">得分</div>
-                <div class="scor">0</div>
-            </div>
-            <div class="box">
-                <div class="name">关卡</div>
-                <div class="state">1</div>
-            </div>
-            <div class="box">
-                <div class="name">生命</div>
-                <div class="life">5</div>
-            </div>
-            <div class="zailai">重新开始</div>
-            <div class="btn pause">暂停</div>
+<div class="scene">
+    <div class="control">
+        <div class="box">
+            <div class="name">得分</div>
+            <div class="scor">0</div>
+        </div>
+        <div class="box">
+            <div class="name">关卡</div>
+            <div class="state">1</div>
+        </div>
+        <div class="box">
+            <div class="name">生命</div>
+            <div class="life">5</div>
+        </div>
+        <div class="zailai">重新开始</div>
+        <div class="btn pause">暂停</div>
         <div class="main">
             <div class="btn start">开始</div>
-            </div>
-        </div>
-
-        <div class="xianshi">
-            <div class="paiming">
-                风云榜
-                <div class="music"></div>
-                <div class="musicr"></div>
-            </div>
-            <div class="zhanshi">
-                <div class="zhanshi0"></div>
-                <div class="zhanshi1"></div>
-                <div class="zhanshi2"></div>
-            </div>
         </div>
     </div>
+
+    <div class="xianshi">
+        <div class="paiming">
+            风云榜
+            <div class="music"></div>
+            <div class="musicr"></div>
+        </div>
+        <div class="zhanshi">
+            <div class="zhanshi0"></div>
+            <div class="zhanshi1"></div>
+            <div class="zhanshi2"></div>
+        </div>
+    </div>
+</div>
 </body>
 <script src="js/jQuery.js"></script>
 <script>
     // onkeydown onkeypress onkeyup
     //window  document
-//    document.onkeydown=function (w) {
-//        console.log(w.altKey)
-//    }
+    //    document.onkeydown=function (w) {
+    //        console.log(w.altKey)
+    //    }
 
     //面向对象
     var main = document.querySelector(".main");
@@ -316,7 +317,7 @@
             div.style.left = rl + "px";
 
             div.style.top = rt + "px";
-
+            div.style.backgroundImage="url(img/"+le+".png)"
             main.appendChild(div);
         }
         _check(left) {
@@ -383,28 +384,28 @@
         _upstate(){
             this.state++;
             this.stateele.innerHTML=this.state;
-           if(this.state<=3){
-               this._createLetter();
-          }else{
-              this.speed++;
-           }
+            if(this.state<=3){
+                this._createLetter();
+            }else{
+                this.speed++;
+            }
         }
         _gameover(){
             alert("游戏结束")
             if(this.best.length<3||(this.best.length>=3&&this.scor>this.best[2].scor)){
                 var player=prompt("请报上名号");
                 this.best.push({player,scor:this.scor});
-            this.best.sort(function(a,b) {
-                if(a.scor>b.scor){
-                    return -1;
-                }else{
-                    return 1;
+                this.best.sort(function(a,b) {
+                    if(a.scor>b.scor){
+                        return -1;
+                    }else{
+                        return 1;
+                    }
+                });
+                if(this.best.length>3){
+                    this.best.pop()
                 }
-            });
-            if(this.best.length>3){
-                this.best.pop()
-            }
-            localStorage.best=JSON.stringify(this.best);
+                localStorage.best=JSON.stringify(this.best);
             }
 //           zhanshi0.innerHTML="姓名"+player;
             zhanshi1.innerHTML="最高分为"+"： "+this.best[0].scor+"分";
@@ -451,7 +452,7 @@
         $(".start").css({left:0})
     })
     $(".zailai").click(function () {
-       console.log(1)
+        console.log(1)
         $(".xianshi").hide()
         $(".zhanshi1").empty()
         $(".zhanshi2").empty()
